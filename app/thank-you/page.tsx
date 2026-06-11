@@ -3,7 +3,9 @@ import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 import { ReferralCard } from "@/components/waitlist/ReferralCard";
+import { WaitlistRank } from "@/components/waitlist/WaitlistRank";
 import { getReferralUrl } from "@/lib/utils";
+import { getWaitlistStatus } from "@/lib/waitlist";
 
 export const metadata: Metadata = {
   title: "You're On The List",
@@ -17,16 +19,17 @@ interface ThankYouPageProps {
 export default async function ThankYouPage({ searchParams }: ThankYouPageProps) {
   const { code, name } = await searchParams;
   const referralUrl = getReferralUrl(code || "");
+  const status = code ? await getWaitlistStatus(code) : null;
 
   return (
     <main className="relative flex min-h-[100svh] w-full flex-col items-center justify-center overflow-hidden px-6 py-24 text-center">
       <AnimatedBackground />
 
-      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary text-white shadow-lg shadow-primary/30">
+      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary text-background shadow-[0_0_40px_-8px_var(--color-primary)]">
         <CheckCircle2 className="h-8 w-8" />
       </div>
 
-      <h1 className="max-w-2xl text-3xl font-extrabold tracking-tight sm:text-5xl">
+      <h1 className="glow-text max-w-2xl text-3xl font-extrabold tracking-tight sm:text-5xl">
         {name ? `Thanks, ${name}! ` : ""}
         You&apos;re officially on the waitlist.
       </h1>
@@ -35,7 +38,13 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
         Invite friends and move up the waitlist.
       </p>
 
-      <div className="mt-10 w-full">
+      {status ? (
+        <div className="mt-8 w-full">
+          <WaitlistRank status={status} />
+        </div>
+      ) : null}
+
+      <div className="mt-6 w-full">
         {code ? (
           <ReferralCard referralUrl={referralUrl} />
         ) : (

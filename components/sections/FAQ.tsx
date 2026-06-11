@@ -8,6 +8,11 @@ import { FadeIn } from "@/components/ui/FadeIn";
 
 const FAQS = [
   {
+    question: "What exactly is the Inflatable Buddy?",
+    answer:
+      "It's an inflatable punch doll tumbler inspired by the Smiski aesthetic — a round, weighted-base figure with a cute minimal face. Punch it, push it, or knock it over and it always wobbles back upright, making it equal parts stress reliever and room decor.",
+  },
+  {
     question: "Is it available in India?",
     answer:
       "Yes! We're launching the first official drop exclusively for India. Waitlist members get priority access before it's available to the general public.",
@@ -34,7 +39,7 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <Section id="faq" className="bg-surface/30">
+    <Section id="faq" className="bg-white/[0.02]">
       <SectionHeading eyebrow="FAQ" title="Got Questions? We've Got Answers" />
 
       <div className="mx-auto mt-12 flex max-w-2xl flex-col gap-3">
@@ -42,7 +47,7 @@ export function FAQ() {
           const isOpen = openIndex === index;
           return (
             <FadeIn key={faq.question} delay={index * 0.08}>
-              <div className="overflow-hidden rounded-2xl border border-border bg-surface/60">
+              <div className="glass-card overflow-hidden rounded-2xl">
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}

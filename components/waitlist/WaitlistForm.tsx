@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
-import { Loader2, PartyPopper } from "lucide-react";
+import { Info, Loader2, PartyPopper } from "lucide-react";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { waitlistSchema, type WaitlistSchema } from "@/lib/validation";
-import { generateReferralCode } from "@/lib/utils";
+import { generateUniqueReferralCode, referralCodeExists } from "@/lib/waitlist";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 
@@ -23,6 +23,27 @@ export function WaitlistForm() {
   const referredBy = searchParams.get("ref");
 
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [referralStatus, setReferralStatus] = useState<"checking" | "valid" | "invalid" | null>(
+    referredBy ? "checking" : null
+  );
+
+  useEffect(() => {
+    if (!referredBy) {
+      setReferralStatus(null);
+      return;
+    }
+
+    let cancelled = false;
+    setReferralStatus("checking");
+
+    referralCodeExists(referredBy).then((exists) => {
+      if (!cancelled) setReferralStatus(exists ? "valid" : "invalid");
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [referredBy]);
 
   const {
     register,
@@ -36,14 +57,14 @@ export function WaitlistForm() {
     setSubmitError(null);
 
     try {
-      const referralCode = generateReferralCode(data.name);
+      const referralCode = await generateUniqueReferralCode(data.name);
 
       await addDoc(collection(db, "waitlist"), {
         name: data.name,
         email: data.email,
         phone: data.phone,
         referralCode,
-        referredBy: referredBy || null,
+        referredBy: referralStatus === "valid" ? referredBy : null,
         createdAt: serverTimestamp(),
       });
 
@@ -66,13 +87,18 @@ export function WaitlistForm() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="mx-auto flex w-full max-w-md flex-col gap-4 rounded-3xl border border-border bg-surface/60 p-6 shadow-2xl shadow-black/40 backdrop-blur-xl sm:p-8"
+      className="glass-card mx-auto flex w-full max-w-md flex-col gap-4 rounded-3xl p-6 shadow-2xl shadow-black/60 sm:p-8"
     >
-      {referredBy ? (
+      {referralStatus === "valid" ? (
         <div className="flex items-center gap-2 rounded-xl border border-primary/30 bg-primary/10 px-4 py-2 text-sm text-primary">
           <PartyPopper className="h-4 w-4 shrink-0" />
           You were invited with code{" "}
           <span className="font-bold">{referredBy}</span>
+        </div>
+      ) : referralStatus === "invalid" ? (
+        <div className="flex items-center gap-2 rounded-xl border border-border bg-foreground/5 px-4 py-2 text-sm text-muted">
+          <Info className="h-4 w-4 shrink-0" />
+          This invite code wasn&apos;t found, but you can still join the waitlist.
         </div>
       ) : null}
 

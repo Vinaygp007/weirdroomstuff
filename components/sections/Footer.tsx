@@ -12,7 +12,7 @@ const CONTACT_EMAIL = "hello@inflatablebuddy.in";
 /** Site footer with brand mark, social links, and contact info. */
 export function Footer() {
   return (
-    <footer className="w-full border-t border-border bg-surface/40 px-6 py-12">
+    <footer className="w-full border-t border-border bg-white/[0.02] px-6 py-12">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 text-center sm:flex-row sm:justify-between sm:text-left">
         <Link href="/" className="flex items-center gap-2 text-xl font-extrabold tracking-tight">
           <span className="text-2xl">🥊🎈</span>
@@ -27,7 +27,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-foreground/5 text-muted transition-colors hover:border-primary hover:bg-primary/10 hover:text-foreground"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white/5 text-muted transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-primary hover:shadow-[0_0_20px_-8px_var(--color-primary)]"
             >
               <Icon className="h-4 w-4" />
             </a>

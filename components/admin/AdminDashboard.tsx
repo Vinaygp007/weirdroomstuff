@@ -105,7 +105,7 @@ export function AdminDashboard() {
   }, [docs]);
 
   if (error) {
-    return <p className="rounded-2xl border border-red-500/30 bg-red-500/10 p-6 text-sm text-red-600">{error}</p>;
+    return <p className="rounded-2xl border border-red-500/30 bg-red-500/10 p-6 text-sm text-red-400">{error}</p>;
   }
 
   if (docs === null) {

@@ -18,7 +18,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 const TITLE = "Viral Inflatable Buddy India";
 const DESCRIPTION =
-  "Join the waitlist for India's first drop of the viral inflatable buddy.";
+  "Join the waitlist for India's first drop of the viral Smiski-style inflatable punch doll tumbler — perfect for stress relief and quirky desk decor.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -30,9 +30,12 @@ export const metadata: Metadata = {
   keywords: [
     "inflatable buddy",
     "punching bag toy",
+    "inflatable tumbler",
+    "punch doll",
     "viral toy India",
     "smiski",
     "stress relief toy",
+    "desk decor toy",
     "waitlist",
   ],
   openGraph: {

@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbfbf6;
-  --foreground: #14171a;
-  --color-primary: #65a30d;
+  --background: #050608;
+  --foreground: #f6f8f1;
+  --color-primary: #c6f24a;
   --color-secondary: #ff4d8d;
   --color-accent: #8b5cf6;
-  --color-muted: #6b7280;
-  --color-surface: #f2f4ec;
-  --color-border: rgba(15, 23, 12, 0.08);
+  --color-muted: #97a0b0;
+  --color-surface: #12151c;
+  --color-border: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
@@ -26,17 +26,37 @@
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-slow: float 9s ease-in-out infinite;
   --animate-gradient: gradient-shift 8s ease infinite;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
 }
 
 html {
-  color-scheme: light;
+  color-scheme: dark;
   scroll-behavior: smooth;
 }
 
 body {
+  position: relative;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Subtle film-grain overlay for a premium textured feel */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: rgba(198, 242, 74, 0.3);
+  color: var(--foreground);
 }
 
 h1,
@@ -54,7 +74,7 @@ h6 {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-surface);
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(var(--color-primary), var(--color-secondary));
@@ -94,6 +114,27 @@ h6 {
   }
 }
 
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 .text-gradient {
   background: linear-gradient(
     90deg,
@@ -106,4 +147,25 @@ h6 {
   background-clip: text;
   color: transparent;
   animation: var(--animate-gradient);
+}
+
+/* Soft neon glow drop-shadow, used behind hero copy and product art */
+.glow-text {
+  filter: drop-shadow(0 0 35px rgba(198, 242, 74, 0.35));
+}
+
+/* Glassy dark card surface used across content sections */
+.glass-card {
+  background: color-mix(in srgb, var(--color-surface) 60%, transparent);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(16px);
+}
+
+/* Animated shimmering border highlight on hover */
+.neon-ring {
+  transition: border-color 0.2s ease, box-shadow 0.3s ease;
+}
+.neon-ring:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+  box-shadow: 0 0 40px -12px var(--color-primary);
 }

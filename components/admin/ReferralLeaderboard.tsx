@@ -5,7 +5,7 @@ interface ReferralLeaderboardProps {
   entries: ReferralLeaderboardEntry[];
 }
 
-const MEDAL_COLORS = ["text-yellow-600", "text-gray-500", "text-amber-700"];
+const MEDAL_COLORS = ["text-yellow-400", "text-gray-300", "text-amber-500"];
 
 /** Ranked list of users by number of successful referrals. */
 export function ReferralLeaderboard({ entries }: ReferralLeaderboardProps) {

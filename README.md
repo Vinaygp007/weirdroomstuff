@@ -1,8 +1,8 @@
 # Viral Inflatable Buddy India — Waitlist Landing Page
 
 A premium, dark-themed Next.js 15 landing page built to collect waitlist
-signups and build pre-launch hype for a viral Smiski-inspired inflatable
-punching buddy launching in India.
+signups and build pre-launch hype for a viral Smiski-style inflatable punch
+doll tumbler launching in India.
 
 ## Tech Stack
 

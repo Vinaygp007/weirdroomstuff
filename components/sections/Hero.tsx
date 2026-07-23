@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowDown, PlayCircle, Star } from "lucide-react";
+import { ArrowDown, PlayCircle, Star, Tag } from "lucide-react";
 import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 import productImage from "@/public/product.jpeg";
 
@@ -73,10 +73,21 @@ export function Hero() {
       </motion.div>
 
       <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.45 }}
+        className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-foreground sm:text-sm"
+      >
+        <Tag className="h-3.5 w-3.5 text-primary" />
+        Expected launch price:{" "}
+        <span className="text-primary">₹499–₹799</span>
+      </motion.div>
+
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.5 }}
-        className="mt-6 flex items-center gap-1.5 text-xs text-muted sm:text-sm"
+        transition={{ duration: 0.6, delay: 0.55 }}
+        className="mt-4 flex items-center gap-1.5 text-xs text-muted sm:text-sm"
       >
         <div className="flex items-center gap-0.5 text-primary">
           {Array.from({ length: 5 }).map((_, i) => (

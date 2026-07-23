@@ -10,7 +10,7 @@ const FAQS = [
   {
     question: "What exactly is the Inflatable Buddy?",
     answer:
-      "It's an inflatable punch doll tumbler inspired by the Smiski aesthetic — a round, weighted-base figure with a cute minimal face. Punch it, push it, or knock it over and it always wobbles back upright, making it equal parts stress reliever and room decor.",
+      "It's an inflatable punch doll tumbler with a collectible mini-figure aesthetic — a round, weighted-base figure with a cute minimal face. Punch it, push it, or knock it over and it always wobbles back upright, making it equal parts stress reliever and room decor.",
   },
   {
     question: "Is it available in India?",
@@ -20,17 +20,17 @@ const FAQS = [
   {
     question: "When will shipping start?",
     answer:
-      "Shipping for the first batch begins shortly after launch. Exact dates will be shared with waitlist members via email and WhatsApp first.",
+      "Shipping for the first batch begins shortly after launch. Exact dates will be shared with waitlist members via email and WhatsApp first — we'll confirm a firm window once the batch is packed and ready to go.",
   },
   {
     question: "How does preorder work?",
     answer:
-      "Once you're on the waitlist, you'll receive an early-access link to secure your preorder before public sales open — guaranteeing you a unit from the first batch.",
+      "Once you're on the waitlist, you'll receive an early-access link to secure your preorder before public sales open — guaranteeing you a unit from the first batch. No payment is required just to join the waitlist itself.",
   },
   {
     question: "What is the expected price range?",
     answer:
-      "We're aiming to keep it affordable and accessible. Waitlist members will also get an exclusive launch discount, announced closer to the drop date.",
+      "We're aiming for an accessible launch price of around ₹499–₹799, depending on the final size and colorway. Waitlist members also get an exclusive launch discount, announced closer to the drop date.",
   },
 ] as const;
 

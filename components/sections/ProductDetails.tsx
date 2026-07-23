@@ -25,7 +25,7 @@ const SPECS = [
   },
   {
     icon: Sparkles,
-    title: "Smiski-style face, bold colorway",
+    title: "Collectible-style face, bold colorway",
     description:
       "A round, minimal expression that looks just as good taking a hit as it does sitting on a shelf.",
   },

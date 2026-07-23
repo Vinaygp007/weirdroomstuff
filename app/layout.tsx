@@ -14,11 +14,11 @@ const inter = Inter({
   weight: ["400", "500"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://weirdroomstuff.vercel.app";
 
 const TITLE = "Viral Inflatable Buddy India";
 const DESCRIPTION =
-  "Join the waitlist for India's first drop of the viral Smiski-style inflatable punch doll tumbler — perfect for stress relief and quirky desk decor.";
+  "Join the waitlist for India's first drop of the viral mini-figure-style inflatable punch doll tumbler — perfect for stress relief and quirky desk decor.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "inflatable tumbler",
     "punch doll",
     "viral toy India",
-    "smiski",
+    "mini figure toy",
     "stress relief toy",
     "desk decor toy",
     "waitlist",

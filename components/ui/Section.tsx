@@ -36,12 +36,12 @@ export function SectionHeading({
   return (
     <div className={cn("mx-auto max-w-2xl text-center", className)}>
       {eyebrow ? (
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary shadow-[0_0_24px_-8px_var(--color-primary)]">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_2px_var(--color-primary)]" />
+        <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+          <span className="h-1.5 w-4 rounded-full bg-primary" />
           {eyebrow}
         </span>
       ) : null}
-      <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
+      <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
         {title}
       </h2>
       {description ? (

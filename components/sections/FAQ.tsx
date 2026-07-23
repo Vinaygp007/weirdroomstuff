@@ -40,7 +40,7 @@ export function FAQ() {
 
   return (
     <Section id="faq" className="bg-white/[0.02]">
-      <SectionHeading eyebrow="FAQ" title="Got Questions? We've Got Answers" />
+      <SectionHeading eyebrow="FAQ" title="Questions? Sorted." />
 
       <div className="mx-auto mt-12 flex max-w-2xl flex-col gap-3">
         {FAQS.map((faq, index) => {

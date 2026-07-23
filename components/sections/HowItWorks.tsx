@@ -5,23 +5,23 @@ import { FadeIn } from "@/components/ui/FadeIn";
 const STEPS = [
   {
     icon: ListChecks,
-    title: "Join Waitlist",
-    description: "Sign up in 30 seconds with your name, email, and WhatsApp number.",
+    title: "Join the waitlist",
+    description: "Takes 30 seconds — just your name, email, and WhatsApp number.",
   },
   {
     icon: KeyRound,
-    title: "Get Early Access",
-    description: "Waitlist members get priority access before the public launch.",
+    title: "Get first dibs",
+    description: "Waitlist members get an early-access link before anyone else.",
   },
   {
     icon: ShoppingBag,
-    title: "Secure Your Preorder",
-    description: "Lock in launch pricing and reserve your buddy ahead of the crowd.",
+    title: "Lock in your unit",
+    description: "Preorder at launch pricing before the first batch runs out.",
   },
   {
     icon: PackageCheck,
-    title: "Receive First Batch",
-    description: "Be among the first in India to get your viral inflatable punch doll tumbler.",
+    title: "It shows up at your door",
+    description: "Shipped straight to you — first batch, first in line.",
   },
 ] as const;
 
@@ -32,7 +32,7 @@ export function HowItWorks() {
       <SectionHeading
         eyebrow="How It Works"
         title="From Waitlist To Your Doorstep"
-        description="Four simple steps stand between you and your new favorite desk companion."
+        description="Four steps between you and your new favorite way to blow off steam."
       />
 
       <div className="relative mt-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">

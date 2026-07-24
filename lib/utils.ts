@@ -31,7 +31,7 @@ export function generateReferralCode(name: string): string {
 
 /** Builds a shareable referral URL for a given code. */
 export function getReferralUrl(code: string): string {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://weirdroomstuff.vercel.app";
   return `${base}/?ref=${code}`;
 }
 

@@ -16,9 +16,9 @@ const inter = Inter({
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://weirdroomstuff.vercel.app";
 
-const TITLE = "Viral Inflatable Buddy India";
+const TITLE = "Viral Inflatable Buddy India — Punch Doll Waitlist";
 const DESCRIPTION =
-  "Join the waitlist for India's first drop of the viral mini-figure-style inflatable punch doll tumbler — perfect for stress relief and quirky desk decor.";
+  "India's first drop of the viral inflatable punch doll tumbler. Join the waitlist for early access and launch pricing.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

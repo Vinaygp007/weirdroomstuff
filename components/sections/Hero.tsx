@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ArrowDown, PlayCircle, Star, Tag } from "lucide-react";
+import { ArrowDown, PlayCircle, Star } from "lucide-react";
 import { AnimatedBackground } from "@/components/ui/AnimatedBackground";
 import productImage from "@/public/product.jpeg";
 
@@ -48,6 +48,31 @@ export function Hero() {
         wobble, zero chill required.
       </motion.p>
 
+      {/* Floating inflatable buddy product photo */}
+      <motion.div
+        className="relative mt-9 h-52 w-52 sm:h-64 sm:w-64"
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+      >
+        <div className="absolute inset-0 -z-10 rounded-full bg-primary/25 blur-[70px]" />
+
+        <motion.div
+          className="h-full w-full"
+          animate={{ y: [0, -14, 0] }}
+          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <Image
+            src={productImage}
+            alt="The Viral Inflatable Buddy"
+            fill
+            priority
+            sizes="(min-width: 640px) 256px, 208px"
+            className="rounded-3xl object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.55)]"
+          />
+        </motion.div>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -73,17 +98,6 @@ export function Hero() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.45 }}
-        className="mt-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-foreground sm:text-sm"
-      >
-        <Tag className="h-3.5 w-3.5 text-primary" />
-        Expected launch price:{" "}
-        <span className="text-primary">₹499–₹799</span>
-      </motion.div>
-
-      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.55 }}
@@ -95,31 +109,6 @@ export function Hero() {
           ))}
         </div>
         <span>Loved by early testers across Delhi, Mumbai &amp; Bangalore</span>
-      </motion.div>
-
-      {/* Floating inflatable buddy product photo */}
-      <motion.div
-        className="relative mt-12 h-52 w-52 sm:h-64 sm:w-64"
-        initial={{ opacity: 0, scale: 0.85 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-      >
-        <div className="absolute inset-0 -z-10 rounded-full bg-primary/25 blur-[70px]" />
-
-        <motion.div
-          className="h-full w-full"
-          animate={{ y: [0, -14, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <Image
-            src={productImage}
-            alt="The Viral Inflatable Buddy"
-            fill
-            priority
-            sizes="(min-width: 640px) 256px, 208px"
-            className="rounded-3xl object-contain drop-shadow-[0_25px_50px_rgba(0,0,0,0.55)]"
-          />
-        </motion.div>
       </motion.div>
 
       <motion.a
